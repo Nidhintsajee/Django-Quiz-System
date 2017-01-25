@@ -1,0 +1,10 @@
+{% block content %}
+<div>
+    {% if user.is_authenticated %}
+<div style="color: #660000; font-size:50px"> Hi {{ user.username }}!</div><br>
+    {% endif %}
+<div> <a href="{% url 'logout' %}">logout</a></div>
+
+    <hr>
+<hr></div>
+    {% endblock %}

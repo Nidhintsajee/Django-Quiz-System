@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student SignUp</title>
+</head>
+<h1 style="font-size:300%;color:#FFFF00;"class='h1'>SCHOOL'S CHALLENGE QUIZ</h1>
+<body style="background-image:url('https://lh3.googleusercontent.com/-IA_BrzFY_hA/VizLlVzH26I/AAAAAAAATE0/H_F94dsYnjk/w1920-h1080/Material%2BWallpaper_1434344602576.png')""><div > <a style="color: #fff555 ;font-size:25px" href="{% url 'select'%}">back</a></div>
+<h1 style="color: #fff555; font-size:50px" >Student Sign Up</h1>
+        {% if registered %}
+<strong style="color: #fff555; font-size:50px">You have registered successfully</strong>
+                {% else %}
+<form style="color: #fff555 ;font-size:25px" id="stud_form" method="post" action="/studregi/" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ stud_form.as_p }}
+<input type="submit" name="submit" value="Register" />
+</form>
+        {% endif %}
+<br><div > <a style="color: #fff555 ;font-size:25px" href="{% url 'studlogin'%}">Student Login</a></div>
+</body>
+</html>

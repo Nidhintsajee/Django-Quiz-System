@@ -1,0 +1,12 @@
+<html>
+<head>
+	<title>welcome</title>
+</head>
+<h1 style="font-size:300%;color:#FFFF00;"class='h1'>SCHOOL'S CHALLENGE QUIZ</h1>
+<body style="background-image:url('https://lh3.googleusercontent.com/-IA_BrzFY_hA/VizLlVzH26I/AAAAAAAATE0/H_F94dsYnjk/w1920-h1080/Material%2BWallpaper_1434344602576.png')"">
+{% include "base.html" %}
+<br> <h1 style="color: #33CCFF; font-size:50px" >Select option? Quiz or Check answers</h1>
+<div > <a style="color: #fff555 ;font-size:25px" href="{% url 'quiz'%}">Start Quiz</a></div><br><br>
+<div > <a style="color: #fff555 ;font-size:25px" href="{% url 'check'%}">Check Answers</a></div><br>
+</body>
+</html>

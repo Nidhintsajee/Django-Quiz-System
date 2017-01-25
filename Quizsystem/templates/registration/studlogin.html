@@ -1,0 +1,20 @@
+<html>
+<head>
+   <title>Student Login</title>
+</head>
+{% load static %}
+<h1 style="font-size:300%;color:#FFFF00;"class='h1'>SCHOOL'S CHALLENGE QUIZ</h1>
+<body class='body' style="color:#99FF00;font-size:150%;background-image:url('https://lh3.googleusercontent.com/-IA_BrzFY_hA/VizLlVzH26I/AAAAAAAATE0/H_F94dsYnjk/w1920-h1080/Material%2BWallpaper_1434344602576.png')" >
+<div > <a style="color: #fff555 ;font-size:25px" href="{% url 'select'%}">back</a></div>
+{% block content %}
+<h1>Student Login</h1>
+<form method="post" class='studselect' action="/Quiz/studselect/">
+    {% csrf_token %}
+    {{ form.as_p }}
+<button type="submit">Login</button>
+</form>
+{% endblock %}
+<br>
+<div> <a style="color:#99FF00;font-size:150%;" href="{% url 'studregi' %}">Student SignUp</a></div>
+</body>
+</html>
