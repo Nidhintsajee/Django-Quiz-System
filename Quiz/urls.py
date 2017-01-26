@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^review', views.review, name='review'),
     url(r'^check', views.check, name='check'),
     url(r'^studselect', views.studselect, name='studselect'),
+    url(r'^leader', views.leader, name='leader'),
 ]

@@ -8,32 +8,72 @@
 <body style="background-image:url('https://lh3.googleusercontent.com/-IA_BrzFY_hA/VizLlVzH26I/AAAAAAAATE0/H_F94dsYnjk/w1920-h1080/Material%2BWallpaper_1434344602576.png')"">
 <h1 style="font-size:300%;color:#FFFF00;"class='h1'>SCHOOL'S CHALLENGE QUIZ</h1><div >
  <a style="color: #fff555 ;font-size:25px" href="{% url 'logout'%}">Log Out</a></div>
+
+<script>
+function startTimer(duration, display) {
+    var start = Date.now(),
+        diff,
+        minutes,
+        seconds;
+    function timer() {
+        // get the number of seconds that have elapsed since
+        // startTimer() was called
+        diff = duration - (((Date.now() - start) / 1000) | 0);
+
+        // does the same job as parseInt truncates the float
+        minutes = (diff / 60) | 0;
+        seconds = (diff % 60) | 0;
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (diff <= 0) {
+            // add one second so that the count down starts at the full duration
+            // example 05:00 not 04:59
+            start = Date.now() + 1000;
+        }
+    };
+    // we don't want to wait a full second before the timer starts
+    timer();
+    setInterval(timer, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 5,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+</script>
+<h1 style="color:#CCFF00;font-size:25px;">Start Quiz before time ends in <span id="time"></span> minutes!</h1>
   <header>
     <h1></h1>
 	<div>
 </div>
     {% if user.is_authenticated %}
-     <div align="center" style="font-size:50pt;font-family:arial"> Welcome {{ user.username }} !!</div><br>
+     <div align="center" style="font-size:50px;color:#FF33FF;"> Hi {{ user.username }} !!</div><br>
       <pre class="tab">
 
-{% endif %}
+    {% endif %}
 
       </pre>
 
 <br> <h1 style="color: #33CCFF; font-size:50px" >Select option? Quiz or Check answers</h1>
 <div > <a style="color: #fff555 ;font-size:25px" href="{% url 'quiz'%}">Start Quiz</a></div><br><br>
 <div > <a style="color: #fff555 ;font-size:25px" href="{% url 'check'%}">Check Answers</a></div><br>
+<div > <a style="color: #fff555 ;font-size:25px" href="{% url 'leader'%}">leader board of Quiz</a></div><br>
 
 
 
   </header>
-
   <main>
     {% block content %}
     {% endblock %}
 	<div class="basic">
 </div>
   </main>
+
 </body>
 {% endblock %}
 </html>

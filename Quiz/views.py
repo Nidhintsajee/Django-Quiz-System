@@ -28,7 +28,8 @@ def answers(request):
 
 def review(request):
 	global score
-	context = {'score':score}
+	usr = User.objects.all()
+	context = {'score':score,'usr':usr}
 	return render(request, 'Quiz/review.html',context)
 
 
@@ -46,3 +47,9 @@ def check(request):
 
 def studselect(request):
 	return render(request, 'Quiz/studselect.html')
+
+def leader(request):
+	adr=Quiz.objects.all()
+	usr=User.objects.all()
+	context = {'usr':usr,'adr':adr}
+	return render(request, 'Quiz/leader.html',context)
