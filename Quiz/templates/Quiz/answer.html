@@ -8,11 +8,10 @@
 <h1 style="color:#CC0000; font-family:verdana; font-size:300%;text-align:center;">SCHOOL'S CHALLENGE QUIZ</h1>
 <body style="background-image:url('http://wallpapershd.press/wp-content/uploads/2016/05/Success-Wallpaper-New-B5X.jpg');font-family:courier; font-size:150%;">
 
- <a style="color: #fff555 ;font-size:25px" href="{% url 'logout'%}">Log Out</a></div>
+<a style="color: #fff555 ;font-size:25px" href="{% url 'logout'%}">Log Out</a></div>
 <h1 style="color:#000066">Your score is {{score}}</h1>
 <div> <a style="color:#99FF00;font-size:150%;" href="{% url 'certificate' %}">certificate is here</a></div>
 <div> <a style="color:#99FF00;font-size:150%;" href="{% url 'check' %}">Check your answers</a></div>
 </body>
-
 {% endblock %}
 </html>
