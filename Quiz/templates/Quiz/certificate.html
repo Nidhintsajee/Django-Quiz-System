@@ -1,8 +1,10 @@
 <html>
+{% block main_content %}
 <head>
 <title>CERTIFICATE</title>
 </head>
 <body>
+ <a style="color: #006600 ;font-size:25px" href="{% url 'logout'%}">Log Out</a></div>
 <div align="center"><TABLE width=800 align="center">
 <TABLE borderColor=black border=3>
 <TBODY>
@@ -21,4 +23,7 @@
 <H3><STRONG><FONT size=4>Oklahoma City, Oklahoma </H3></STRONG></CENTER>
 <CENTER>
 <H3><STRONG><FONT size=2><VAR>Accredited by the North Central Association of Colleges and Schools</VAR></H3></STRONG></CENTER></FONT><BR>
-</TD></TR></TBODY></TABLE></TABLE></div></body></html>
+</TD></TR></TBODY></TABLE></TABLE></div></body>
+
+{%  endblock %}
+</html>

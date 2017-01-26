@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from Quiz.models import Quiz # Import the model classes
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
+from django.contrib.auth.signals import user_logged_in
 from django.http import HttpResponse
 import requests
 
@@ -8,7 +10,7 @@ import requests
 def quiz(request):
 	questions = Quiz.objects.all()
 	context = {'questions':questions}
-	return render(request, 'quiz.html', context)
+	return render(request, 'Quiz/quiz.html', context)
 
 score=0
 
@@ -22,22 +24,25 @@ def answers(request):
 			score+=1 
 
 	context = {'score':score}
-	return render(request, 'answer.html', context)
+	return render(request, 'Quiz/answer.html', context)
 
 def review(request):
 	global score
 	context = {'score':score}
-	return render(request, 'review.html',context)
+	return render(request, 'Quiz/review.html',context)
 
 
 def certificate(request):
 	global score
 	context = {'score': score}
-	return render(request, 'certificate.html',context)
+	return render(request, 'Quiz/certificate.html',context)
 
 
 def check(request):
-	return render(request, 'check.html')
+	adr=Quiz.objects.all()
+	usr=User.objects.all()
+	context = {'usr':usr,'adr':adr}
+	return render(request, 'Quiz/check.html',context)
 
 def studselect(request):
-	return render(request, 'studselect.html')
+	return render(request, 'Quiz/studselect.html')

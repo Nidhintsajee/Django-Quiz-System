@@ -1,13 +1,14 @@
+<!DOCTYPE html>
+{% block main_content %}
 <html>
 <head>
 	<title>Quiz</title>
 </head>
 <header>
-{% load static %}
 </header>
 <h1 style="color:#CC0000; font-family:verdana; font-size:300%;text-align:center;">SCHOOL'S CHALLENGE QUIZ</h1>
 <b><body style="color:#000066;background-image:url('http://previews.123rf.com/images/amasterpics123/amasterpics1231505/amasterpics123150500018/40257557-Abstract-question-mark-on-white-wall-background-Stock-Photo-question.jpg');font-family:courier; font-size:120%;">
-    {% include "base.html" %}
+ <a style="color: #006600 ;font-size:25px" href="{% url 'logout'%}">Log Out</a></div>
 <form action= 'answers/' method = "POST" >
     {% for question in questions %}       
 <div class = 'question'>Q{{ question.question }} </div><br>
@@ -24,4 +25,5 @@
     {% csrf_token %}
 </form>
 </body></b>
+{% endblock %}
 </html>
